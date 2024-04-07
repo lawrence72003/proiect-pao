@@ -10,6 +10,10 @@ public class ProductionService {
         return IMDB.getInstance().getProductions();
     }
 
+    public static List<Production> getProductionByTitle(String title) {
+        return IMDB.getInstance().getProductions().stream().filter(production -> production.getTitle().equals(title)).toList();
+    }
+
     public static void addProduction(Production production) {
         getAllProductions().add(production);
     }

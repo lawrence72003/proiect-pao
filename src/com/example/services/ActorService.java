@@ -10,6 +10,10 @@ public class ActorService {
         return IMDB.getInstance().getActors();
     }
 
+    public static List<Actor> getActorByName(String name) {
+        return IMDB.getInstance().getActors().stream().filter(actor -> actor.getName().equals(name)).toList();
+    }
+
     public static void addActor(Actor actor) {
         getAllActors().add(actor);
     }
