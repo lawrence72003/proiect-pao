@@ -6,12 +6,12 @@ import java.util.SortedSet;
 
 public abstract class User {
     protected String username;
-    protected String experience;
+    protected int experience;
     protected UserType type;
     protected SortedSet<Production> favorites;
     protected Credentials credentials;
 
-    public User(String username, String experience, UserType type, SortedSet<Production> favorites, Credentials credentials) {
+    public User(String username, int experience, UserType type, SortedSet<Production> favorites, Credentials credentials) {
         this.username = username;
         this.experience = experience;
         this.type = type;
@@ -23,7 +23,7 @@ public abstract class User {
         return username;
     }
 
-    public String getExperience() {
+    public int getExperience() {
         return experience;
     }
 
@@ -43,7 +43,7 @@ public abstract class User {
         this.username = username;
     }
 
-    public void setExperience(String experience) {
+    public void setExperience(int experience) {
         this.experience = experience;
     }
 

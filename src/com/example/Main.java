@@ -1,19 +1,32 @@
 package com.example;
 
 import com.example.production.Actor;
+import com.example.production.Movie;
 import com.example.production.Production;
 import com.example.services.ActorService;
 import com.example.services.ProductionService;
+import com.example.services.UserService;
+import com.example.user.Credentials;
+import com.example.user.Regular;
 import com.example.user.User;
+import com.example.user.UserType;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
     private static User currentUser = null;
 
     public static void main(String[] args) {
+        UserService.addUser(new Regular("admin", 13, UserType.Regular, null, new Credentials("lawrence@gmail.com", "password")));
+
+        ProductionService.addProduction(new Movie("Interstellar", "Space Adventure", 2014, 8.6F, new ArrayList<>(), new ArrayList<>(), 169));
+
+        ActorService.addActor(new Actor("Bahoi", "Rapper", new TreeSet<>()));
+
         currentUser = login();
 
         while (true) {
@@ -28,10 +41,12 @@ public class Main {
                 case 1:
                     for (Production production : ProductionService.getAllProductions())
                         System.out.println(production.getTitle());
+                    System.out.println();
                     break;
                 case 2:
                     for (Actor actor : ActorService.getAllActors())
                         System.out.println(actor.getName());
+                    System.out.println();
                     break;
                 case 3:
                     System.exit(0);

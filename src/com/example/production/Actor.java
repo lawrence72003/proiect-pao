@@ -14,10 +14,6 @@ public class Actor {
         this.performances = performances;
     }
 
-    public Actor(String name, String biography) {
-        this(name, biography, new TreeSet<Production>());
-    }
-
     public String getName() {
         return name;
     }

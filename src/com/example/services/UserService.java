@@ -6,15 +6,15 @@ import com.example.user.User;
 import java.util.List;
 
 public class UserService {
-    public List<User> getAllUsers() {
+    public static List<User> getAllUsers() {
         return IMDB.getInstance().getUsers();
     }
 
-    public void addUser(User user) {
+    public static void addUser(User user) {
         IMDB.getInstance().getUsers().add(user);
     }
 
-    public void removeUser(User user) {
+    public static void removeUser(User user) {
         IMDB.getInstance().getUsers().remove(user);
     }
 }
